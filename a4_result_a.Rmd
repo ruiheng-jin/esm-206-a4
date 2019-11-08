@@ -16,16 +16,44 @@ knitr::opts_chunk$set(
 ```{r}
 library(tidyverse)
 library(janitor)
-lob_abun <- read_csv("lobster_abundance_sbc_lter.csv")
+lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
+                     na = "-99999") %>% 
+  clean_names()
 
 ```
 
 ## Results A - Visual exploration of changes in annual lobster abundance by site
 
 ```{r}
+# data structure: each site has several transects, each transect has ABCD replicates
 
+# uncount lobsters so each lobster has its own row
+lob_tidy <- lob_abun %>% 
+  tidyr::uncount(count)
 ```
 
+```{r}
+# count total lobster count by year and site
+lob_yr_site <- lob_tidy %>%
+  count(year, site)
+
+# make a line graph of abundance change through the years
+
+## option 1
+ggplot(lob_yr_site, aes(x = year, y = n, color = site)) +
+  geom_line(size = .5) +
+  geom_point()
+
+## option 2
+ggplot(lob_yr_site, aes(x = year, y = n)) +
+  facet_wrap(~site) +
+  geom_line() +
+  geom_point()
+# NEED TO FIGURE OUT HOW TO INCREASE GAP BETWEEN  
+  
+  
+# geom_col(position = 'dodge') 
+```
 
 
 
