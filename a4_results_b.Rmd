@@ -17,6 +17,21 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
- library(tidyverse)
+#attaching packages
+
+library(tidyverse)
 library(janitor)
 ```
+
+
+```{r}
+
+# read in spiny lobster data
+
+lob_abun <- read_csv("lobster_abundance_sbc_lter.csv", 
+                    na = "-99999") %>% 
+  clean_names()
+
+
+```
+
