@@ -6,6 +6,36 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
 ```
+
+```{r}
+library(tidyverse)
+library(janitor)
+lob_abun <- read_csv("lobster_abundance_sbc_lter.csv")
+
+```
+
+## Results A - Visual exploration of changes in annual lobster abundance by site
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
