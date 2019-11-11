@@ -22,7 +22,10 @@ lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
 
 ```
 
-## Results A - Visual exploration of changes in annual lobster abundance by site
+
+
+
+### RESULTS A: CHANGES IN ANNUAL LOBSTER ABUNDANCE AT FIVE SITES
 
 ```{r}
 # data structure: each site has several transects, each transect has ABCD replicates
@@ -40,9 +43,9 @@ lob_yr_site <- lob_tidy %>%
 # make a line graph of abundance change through the years
 
 ## option 1
-ggplot(lob_yr_site, aes(x = year, y = n, color = site)) +
-  geom_line(size = .5) +
-  geom_point()
+#ggplot(lob_yr_site, aes(x = year, y = n, color = site)) +
+#  geom_line(size = .5) +
+#  geom_point()
 
 ## option 2
 lob_yr_site$site2 <- factor(lob_yr_site$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
@@ -60,13 +63,15 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
   scale_y_continuous(expand = expand_scale(add = c(0, 0)),
                      limits = c(0, 1000)) +
   theme_light() +
-  theme(plot.caption = element_text(hjust = 0)) 
+  theme(plot.caption = element_text(hjust = 0, size = 10),
+        title = element_text(size = 13)) 
 # NEED TO FIGURE OUT HOW TO INCREASE GAP BETWEEN  
   
   
 # geom_col(position = 'dodge') 
 ```
 
+At all sites but Arroyo Quemado, there is a general increase in lobster abundance; Carpinteria and Isla Vista have significantly larger rates of increase than the rest.
 
 
 
