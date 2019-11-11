@@ -49,9 +49,18 @@ lob_yr_site$site2 <- factor(lob_yr_site$site, labels = c("Arroyo Quemado", "Carp
 
 ggplot(lob_yr_site, aes(x = year, y = n)) +
   facet_wrap(~site2) +
-  geom_line() +
-  geom_point() +
-  scale_x_continuous(expand = c(0.1, 0))
+  geom_line(color = "#b62b2b", size = 1) +
+  geom_point(color = "#4b1313", size = 2) +
+  labs(x = "", 
+       y = "Lobster abundance", 
+       title = "Lobster Abundance at Five Sites (2012-2018)",
+       caption = "Figure 1. Lobster abundance from 5 study sites, from year 2012 to 2018.") +
+  scale_x_continuous(expand = expand_scale(add = c(1, 1)),
+                     breaks = c(2012, 2014, 2016, 2018)) +
+  scale_y_continuous(expand = expand_scale(add = c(0, 0)),
+                     limits = c(0, 1000)) +
+  theme_light() +
+  theme(plot.caption = element_text(hjust = 0)) 
 # NEED TO FIGURE OUT HOW TO INCREASE GAP BETWEEN  
   
   
