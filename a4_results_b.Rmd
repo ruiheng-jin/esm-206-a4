@@ -1,6 +1,5 @@
 ---
 title: "a4_results_b"
-title: "206 A4 Result A"
 author: "Qusai Bhaijeewala"
 date: "11/8/2019"
 output: html_document
