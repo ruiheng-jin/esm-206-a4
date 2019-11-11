@@ -45,10 +45,13 @@ ggplot(lob_yr_site, aes(x = year, y = n, color = site)) +
   geom_point()
 
 ## option 2
+lob_yr_site$site2 <- factor(lob_yr_site$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
+
 ggplot(lob_yr_site, aes(x = year, y = n)) +
-  facet_wrap(~site) +
+  facet_wrap(~site2) +
   geom_line() +
-  geom_point()
+  geom_point() +
+  scale_x_continuous(expand = c(0.1, 0))
 # NEED TO FIGURE OUT HOW TO INCREASE GAP BETWEEN  
   
   
