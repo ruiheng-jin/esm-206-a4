@@ -55,12 +55,19 @@ lob_tidy <- lob_abun %>%
 lob_size <- lob_tidy %>% 
   filter(year %in% c(2012,2018))
 
+#graphing size distributions of lobster size at five sites from two years, 2012, 2018
+# I have to spell the sites out and maybe get rid of the legend. I wrote something in the caption as a place holder, will make it better later.
+
+# I also want to space out the y axis a little.
+
 ggplot(lob_size, aes(x = size_mm)) +
   geom_histogram(aes(fill = site)) +
   facet_grid(site ~ year, scales = "free_y") +
   theme_light() +
-    labs(x = "Lobster size (mm)", y = "Lobster Count", 
-       title = "Lobster size distributions observed at the 5 different sites \n in 2012 and 2018")
+    labs(x = "Lobster size (mm)", 
+         y = "Lobster Count", 
+       title = "Lobster size distributions observed at the 5 different sites \n in 2012 and 2018",
+       caption = "Figure 2: This graph shows the size distributions of all the lobsters in 2012 and 2018 found in the five sites. one can see that for the site aqua, the sizes of the lobsters have increased. THey population for the IVEE site and the NAPL site drastically increased. ")
  # theme_update(plot.title = element_text(hjust = 0.5)) +
   #geom_hline(yintercept = 6377, color = "blue")
  # annotate(geom = "text",
