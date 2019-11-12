@@ -57,7 +57,7 @@ lob_size <- lob_tidy %>%
 
 ggplot(lob_size, aes(x = size_mm)) +
   geom_histogram(aes(fill = site)) +
-  facet_wrap(~year) +
+  facet_grid(site ~ year, scales = "free_y") +
   theme_light() +
     labs(x = "Lobster size (mm)", y = "Lobster Count", 
        title = "Lobster size distributions observed at the 5 different sites \n in 2012 and 2018")
