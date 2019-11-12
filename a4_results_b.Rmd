@@ -55,9 +55,56 @@ lob_tidy <- lob_abun %>%
 lob_size <- lob_tidy %>% 
   filter(year %in% c(2012,2018))
 
+ggplot(lob_size, aes(x = size_mm)) +
+  geom_histogram(aes(fill = site)) +
+  facet_wrap(~year) +
+  theme_light() +
+    labs(x = "Lobster size (mm)", y = "Lobster Count", 
+       title = "Lobster size distributions observed at the 5 different sites \n in 2012 and 2018")
+ # theme_update(plot.title = element_text(hjust = 0.5)) +
+  #geom_hline(yintercept = 6377, color = "blue")
+ # annotate(geom = "text",
+           #x = 1940, y = 6380,
+          # label = "Land Bridges Emerge",
+          # color = "black") +
+ # geom_point(x = 1941, y = 6417, color = "red", size = 2) +
+ # annotate("segment", x = 1960, y = 6426, xend = 1941, yend = 6417,
+#           size = 0.5, arrow = arrow(), color = "red") +
+#  annotate(geom = "text",
+          # x = 1970, y = 6429,
+          # label = "Mono Basin Diversions Begin",
+         #  color = "black", size = 4) +
+  #geom_ribbon(aes(ymin = 6370, ymax = lake_level_feet_above_sea_level,
+  ##                color = "Light Blue", alpha = .5),
+  #            show.legend = FALSE)
+
+```
+
+
+```{r}
 ggplot(lob_size, aes(x = site, y = size_mm)) +
   geom_jitter(aes(color = site)) +
-  facet_wrap(~year)
+  facet_wrap(~year) +
+  theme_dark() +
+    labs(x = "site", y = "Lobster size (mm)", 
+       title = "Lobster size distributions observed at the 5 different sites \n in 2012 and 2018")
+ # theme_update(plot.title = element_text(hjust = 0.5)) +
+  #geom_hline(yintercept = 6377, color = "blue")
+ # annotate(geom = "text",
+           #x = 1940, y = 6380,
+          # label = "Land Bridges Emerge",
+          # color = "black") +
+ # geom_point(x = 1941, y = 6417, color = "red", size = 2) +
+ # annotate("segment", x = 1960, y = 6426, xend = 1941, yend = 6417,
+#           size = 0.5, arrow = arrow(), color = "red") +
+#  annotate(geom = "text",
+          # x = 1970, y = 6429,
+          # label = "Mono Basin Diversions Begin",
+         #  color = "black", size = 4) +
+  #geom_ribbon(aes(ymin = 6370, ymax = lake_level_feet_above_sea_level,
+  ##                color = "Light Blue", alpha = .5),
+  #            show.legend = FALSE)
+
 
 ```
 
