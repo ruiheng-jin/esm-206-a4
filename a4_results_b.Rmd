@@ -54,6 +54,8 @@ two within MPAs (Naples and Isla Vista) and three outside (Arroyo Quemado, Mohaw
 ## trying mike's code out to change the axis's
 lob_tidy2$site_name <- factor(lob_tidy2$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
 
+lob_tidy2$mpa <- lob_tidy2$site %in% c("IVEE", "NAPL")
+
 # filtering years of 2012 and 2018 only
 lob_size <- lob_tidy2 %>% 
   filter(year %in% c(2012,2018))
