@@ -1,0 +1,26 @@
+---
+title: "ESM 206 Assignment 4 Report"
+author: "Ruiheng Jin"
+date: "11/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+### INTRODUCTION
+
+### DATA AND METHODS
+
+### RESULTS {.tabset .tabset-fade}
+
+#### RESULTS A
+
+#### RESULTS B
+
+#### RESULTS C
+
+
+### SUMMARY
+
+### REFERENCE
