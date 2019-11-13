@@ -41,7 +41,8 @@ lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
 
 # uncount lobsters so each lobster has its own row
 lob_tidy2 <- lob_abun %>% 
-  tidyr::uncount(count)
+  tidyr::uncount(count) %>% 
+  mutate(mpa = site %in% c("IVEE", "NAPL"))
 
 ```
 
@@ -54,7 +55,7 @@ two within MPAs (Naples and Isla Vista) and three outside (Arroyo Quemado, Mohaw
 ## trying mike's code out to change the axis's
 lob_tidy2$site_name <- factor(lob_tidy2$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
 
-lob_tidy2$mpa <- lob_tidy2$site %in% c("IVEE", "NAPL")
+
 
 # filtering years of 2012 and 2018 only
 lob_size <- lob_tidy2 %>% 
@@ -145,4 +146,6 @@ ggplot(lob_tidy2, aes(x = size_mm)) +
 
 
 ```
+
+
 
