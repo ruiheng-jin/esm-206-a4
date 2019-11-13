@@ -44,7 +44,12 @@ lob_tidy2 <- lob_abun %>%
   tidyr::uncount(count) %>% 
   mutate(mpa = site %in% c("IVEE", "NAPL"))
 
-lob_tidy2$mpa2 <- factor(lob_tidy2$mpa, labels = c("non-MPA", "MPA"))
+
+# making a new column changing TRUE or FALSE to MPA and non-MPA
+lob_tidy2$mpa_status <- factor(lob_tidy2$mpa, labels = c("non-MPA", "MPA"))
+
+
+
 
 ```
 
@@ -166,15 +171,20 @@ ggplot(lob_tidy2, aes(x = size_mm)) +
 ```
 
 
-Making a summary table for comparing MPA vs. non-MPA, 2012 and 2018
+### Making a summary table for comparing MPA vs. non-MPA, 2012 and 2018
 ```{r}
 
 lob_c_sum <- lob_tidy2 %>% 
-  filter(year == c(2012, 2018)) %>% 
-  mutate(count = )
-  group_by(year, mpa) %>% 
+  filter(year %in% c(2012, 2018)) %>% 
+  group_by(year, mpa_status) %>% 
   summarize(mean = mean(size_mm),
-            sd = sd(size_mm))
+            sd = sd(size_mm),
+            sample_size = n())
+
+lob_c_sum
+
+
+  
 
   
 ```
