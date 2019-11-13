@@ -10,7 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 ### INTRODUCTION
 
+
 ### DATA AND METHODS
+
 
 ### RESULTS {.tabset .tabset-fade}
 
@@ -22,5 +24,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ### SUMMARY
+
 
 ### REFERENCE
