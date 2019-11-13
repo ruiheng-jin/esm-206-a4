@@ -98,7 +98,7 @@ ggplot(lob_size, aes(x = size_mm)) +
 There are two marine protected area (MPA), Naples and Isla Vista. These two sites have increased their lobster counts and the sizes of the lobsters as well. The sites of Mohalk and Carpenteria have also icreased in abundance and size. The site called Arroyo Quemado has the leased increase in spiny lobster size.
 
 -----------------------------------------------------------------
-## Results C Section
+## Results C Section {.tabset .tabset-fade}
 
 
 ```{r}
@@ -116,6 +116,8 @@ ggplot(lob_av_size, aes(x = year, y = av_size)) +
 
 ```
 
+### next graph
+
 ```{r}
 lob_av_size2 <- lob_tidy2 %>% 
   group_by(year, site) %>% 
@@ -130,9 +132,10 @@ ggplot(lob_av_size2, aes(x = year, y = av_size)) +
                      labels = c("2012", "2018"))
 ```
 
+
+### Messing around with the data 
+
 ```{r}
-
-
 
 ggplot(lob_tidy2, aes(x = size_mm)) +
   geom_histogram(aes(fill = site)) +
