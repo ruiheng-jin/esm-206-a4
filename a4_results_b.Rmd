@@ -51,14 +51,13 @@ Sampling began in 2012 and is ongoing. Naples and Isla Vista
 two within MPAs (Naples and Isla Vista) and three outside (Arroyo Quemado, Mohawk and Carpinteria).
 
 ```{r}
-# filtering years of 2012 and 2018 only
+## trying mike's code out to change the axis's
+lob_tidy2$site_name <- factor(lob_tidy2$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
 
+# filtering years of 2012 and 2018 only
 lob_size <- lob_tidy2 %>% 
   filter(year %in% c(2012,2018))
 
-
-## trying mike's code out to change the axis's
-lob_tidy2$site_name <- factor(lob_tidy2$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
 
 #graphing size distributions of lobster size at five sites from two years, 2012, 2018
 # I have to spell the sites out and maybe get rid of the legend. I wrote something in the caption as a place holder, will make it better later.
@@ -66,7 +65,7 @@ lob_tidy2$site_name <- factor(lob_tidy2$site, labels = c("Arroyo Quemado", "Carp
 # I also want to space out the y axis a little.
 
 ggplot(lob_size, aes(x = size_mm)) +
-  geom_histogram(aes(fill = site)) +
+  geom_histogram(aes(fill = site_name)) +
   facet_grid(site ~ year, scales = "free_y") +
   theme_light() +
     labs(x = "Lobster size (mm)", 
