@@ -132,11 +132,16 @@ lob_av_size2 <- lob_tidy2 %>%
   filter(year %in% c("2012","2018"))
 
 
-ggplot(lob_av_size2, aes(x = year, y = av_size)) +
-  geom_col() +
+ggplot(lob_av_size2, aes(x = year, y = av_size, fill = year)) +
+  geom_col(show.legend = FALSE) +
   facet_wrap(site_name ~ mpa) +
   scale_x_continuous(breaks = c(2012, 2018),
-                     labels = c("2012", "2018"))
+                     labels = c("2012", "2018")) +
+  theme_light() +
+    labs(x = "Year", 
+         y = "Average Lobster Size", 
+       title = "Average Lobster size observed at the 5 different sites \n in 2012 and 2018",
+       caption = "Figure 3: This graph shows the Average lobster size of all the lobsters in 2012 and 2018 found in the five sites.")
 ```
 
 
