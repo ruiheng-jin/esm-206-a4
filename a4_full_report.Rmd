@@ -6,7 +6,11 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
 ```
 
 ```{r}
@@ -26,10 +30,6 @@ lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
 ### RESULTS {.tabset .tabset-fade}
 
 #### RESULTS A: CHANGES IN ANNUAL LOBSTER ABUNDANCE AT FIVE SITES
-
-
-
-
 
 ```{r}
 # data structure: each site has several transects, each transect has ABCD replicates
@@ -115,7 +115,7 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
         title = element_text(size = 13))
 ```
 
-
+#### RESULTS B: SHIFTS IN LOBSTER SIZE DISTRIBUTION FROM 2012 TO 2018
 ```{r setup, include=FALSE}
 #### RESULTS B
 
@@ -217,7 +217,7 @@ ggplot(lob_size, aes(x = size_mm)) +
 There are two marine protected area (MPA), Naples and Isla Vista. These two sites have increased their lobster counts and the sizes of the lobsters as well. The sites of Mohalk and Carpenteria have also icreased in abundance and size. The site called Arroyo Quemado has the leased increase in spiny lobster size.
 
 
-#### Results C Section {.tabset .tabset-fade}
+#### RESULTS C: COMPARING MEAN LOBSTER SIZES AT MPA VS NON-MPA SITES IN 2012 AND 2018 {.tabset .tabset-fade}
 
 
 ```{r}
