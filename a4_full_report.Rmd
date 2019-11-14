@@ -36,7 +36,13 @@ lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
 
 # uncount lobsters so each lobster has its own row
 lob_tidy <- lob_abun %>% 
-  tidyr::uncount(count)
+  tidyr::uncount(count) %>% 
+  mutate(mpa = site %in% c("IVEE", "NAPL"))
+
+# making a new column changing TRUE or FALSE to MPA and non-MPA
+lob_tidy$mpa_status <- factor(lob_tidy$mpa, labels = c("non-MPA", "MPA"))
+
+lob_tidy$site_name <- factor(lob_tidy$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
 ```
 
 ```{r}
@@ -52,10 +58,10 @@ lob_yr_site <- lob_tidy %>%
 #  geom_point()
 
 ## option 2
-lob_yr_site$site2 <- factor(lob_yr_site$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
+lob_yr_site$site_name <- factor(lob_yr_site$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
 
 ggplot(lob_yr_site, aes(x = year, y = n)) +
-  facet_wrap(~site2) +
+  facet_wrap(~site_name) +
   geom_line(color = "#b62b2b", size = 1) +
   geom_point(color = "#4b1313", size = 2) +
   labs(x = "", 
@@ -75,46 +81,6 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
 # geom_col(position = 'dodge') 
 ```
 
-```{r}
-# data structure: each site has several transects, each transect has ABCD replicates
-
-# uncount lobsters so each lobster has its own row
-lob_tidy <- lob_abun %>% 
-  tidyr::uncount(count)
-```
-
-```{r}
-# count total lobster count by year and site
-lob_yr_site <- lob_tidy %>%
-  count(year, site)
-
-# make a line graph of abundance change through the years
-
-## option 1
-#ggplot(lob_yr_site, aes(x = year, y = n, color = site)) +
-#  geom_line(size = .5) +
-#  geom_point()
-
-## option 2
-lob_yr_site$site2 <- factor(lob_yr_site$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
-
-ggplot(lob_yr_site, aes(x = year, y = n)) +
-  facet_wrap(~site2) +
-  geom_line(color = "#b62b2b", size = 1) +
-  geom_point(color = "#4b1313", size = 2) +
-  labs(x = "", 
-       y = "Lobster abundance", 
-       title = "Lobster Abundance at Five Sites (2012-2018)",
-       caption = "Figure 1. Lobster abundance from 5 study sites, from year 2012 to 2018.") +
-  scale_x_continuous(expand = expand_scale(add = c(1, 1)),
-                     breaks = c(2012, 2014, 2016, 2018)) +
-  scale_y_continuous(expand = expand_scale(add = c(0, 0)),
-                     limits = c(0, 1000)) +
-  theme_light() +
-  theme(plot.caption = element_text(hjust = 0, size = 10),
-        title = element_text(size = 13))
-```
-
 #### RESULTS B: SHIFTS IN LOBSTER SIZE DISTRIBUTION FROM 2012 TO 2018
 
 ```{r}
@@ -126,13 +92,8 @@ lob_tidy2 <- lob_abun %>%
   tidyr::uncount(count) %>% 
   mutate(mpa = site %in% c("IVEE", "NAPL"))
 
-
 # making a new column changing TRUE or FALSE to MPA and non-MPA
 lob_tidy2$mpa_status <- factor(lob_tidy2$mpa, labels = c("non-MPA", "MPA"))
-
-
-
-
 ```
 
 Marine Protected Areas (MPA) 
