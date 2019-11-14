@@ -116,36 +116,6 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
 ```
 
 #### RESULTS B: SHIFTS IN LOBSTER SIZE DISTRIBUTION FROM 2012 TO 2018
-```{r setup, include=FALSE}
-#### RESULTS B
-
-knitr::opts_chunk$set(
-	echo = FALSE,
-	message = FALSE,
-	warning = FALSE
-)
-```
-
-```{r}
-#attaching packages
-
-library(tidyverse)
-library(janitor)
-
-```
-
-
-```{r}
-
-# read in spiny lobster data
-
-lob_abun <- read_csv("lobster_abundance_sbc_lter.csv", 
-                    na = "-99999") %>% 
-  clean_names()
-
-
-```
-
 
 ```{r}
 
