@@ -73,12 +73,8 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
 # geom_col(position = 'dodge') 
 ```
 
-<<<<<<< HEAD
-#### RESULTS B
 
-=======
 #### RESULTS B: SHIFTS IN LOBSTER SIZE DISTRIBUTION FROM 2012 TO 2018
->>>>>>> afed31b235a42d942360c034d415b06328d13352
 
 ```{r}
 # data structure: each site has several transects, and within each transect they have either A, B, C, or D replicates. The count column can has multiple counts of the same transect number and replicate, we want to make each of those counts a seperate row.
