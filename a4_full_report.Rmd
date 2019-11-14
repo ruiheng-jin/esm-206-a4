@@ -81,31 +81,6 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
 #### RESULTS B
 
 
-
-
-
-
-```{r}
-#attaching packages
-
-library(tidyverse)
-library(janitor)
-
-```
-
-
-```{r}
-
-# read in spiny lobster data
-
-lob_abun <- read_csv("lobster_abundance_sbc_lter.csv", 
-                    na = "-99999") %>% 
-  clean_names()
-
-
-```
-
-
 ```{r}
 
 # data structure: each site has several transects, and within each transect they have either A, B, C, or D replicates. The count column can has multiple counts of the same transect number and replicate, we want to make each of those counts a seperate row.
@@ -264,8 +239,54 @@ lob_c_sum
 
   
 ```
+ ---------------------------------------------------------------
+ --------------------------------------------------------------
+ T: TESTS
+ 
+ 
+ 
+```{r}
+lob_mpa <- lob_tidy2 %>% 
+  filter(year %in% c(2012,2018)) %>% 
+  filter(mpa_status == "MPA") %>% 
+  pull(size_mm)
+
+lob_non_mpa <- lob_tidy2 %>% 
+  filter(year %in% c(2012,2018)) %>% 
+  filter(mpa_status == "non-MPA") %>% 
+  pull(size_mm)
+
+t.test(lob_mpa)
+
+t.test(lob_non_mpa)
+```
+
+```{r eval=FALSE, include=FALSE}
+### ntrying to do T shits
+lob_2012 <- lob_tidy2 %>% 
+  filter(year == "2012") %>% 
+  group_by(year, mpa_status) %>% 
+  summarize(mean = mean(size_mm),
+            sd = sd(size_mm),
+            sample_size = n())
+
+lob_2018 <- lob_tidy2 %>% 
+  filter(year ==  "2018") %>% 
+  group_by(year, mpa_status) %>% 
+  summarize(mean = mean(size_mm),
+            sd = sd(size_mm),
+            sample_size = n())
 
 
+
+
+
+```
+```{r eval=FALSE, include=FALSE}
+# more trying of T stuff
+
+lob_t <- t.test(lob_2012$size_mm, lob_2018$size_mm)
+```
 
 #### RESULTS C
 
