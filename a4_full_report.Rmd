@@ -8,6 +8,15 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+```{r}
+library(tidyverse)
+library(janitor)
+lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
+                     na = "-99999") %>% 
+  clean_names()
+
+```
 ### INTRODUCTION
 
 
@@ -19,14 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
 #### RESULTS A: CHANGES IN ANNUAL LOBSTER ABUNDANCE AT FIVE SITES
 
 
-```{r}
-library(tidyverse)
-library(janitor)
-lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
-                     na = "-99999") %>% 
-  clean_names()
 
-```
 
 
 ```{r}
