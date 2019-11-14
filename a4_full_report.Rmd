@@ -110,7 +110,9 @@ ggplot(lob_size, aes(x = size_mm)) +
   geom_histogram(aes(fill = site_name)) +
   facet_grid(site ~ year, scales = "free_y") +
   theme_light() +
-    labs(x = "Lobster size (mm)", 
+  theme(plot.caption = element_text(hjust = 0, size = 10),
+        title = element_text(size = 13)) +
+  labs(x = "Lobster size (mm)", 
          y = "Lobster Count", 
          fill = "Site Name",
        title = "Lobster size distributions observed at the 5 different sites \n in 2012 and 2018",
@@ -149,7 +151,10 @@ lob_av_size <- lob_tidy2 %>%
 
 ggplot(lob_av_size, aes(x = year, y = av_size)) +
   geom_col() +
-  facet_wrap(~site)
+  facet_wrap(~site) +
+  theme_light() +
+  theme(plot.caption = element_text(hjust = 0, size = 10),
+        title = element_text(size = 13)) 
   #facet_grid(site ~ year, scales = "free_y") +
  # theme_dark() 
 
@@ -170,7 +175,9 @@ ggplot(lob_av_size2, aes(x = year, y = av_size, fill = year)) +
   scale_x_continuous(breaks = c(2012, 2018),
                      labels = c("2012", "2018")) +
   theme_light() +
-    labs(x = "Year", 
+  theme(plot.caption = element_text(hjust = 0, size = 10),
+        title = element_text(size = 13)) +
+  labs(x = "Year", 
          y = "Average Lobster Size", 
        title = "Average Lobster size observed at the 5 different sites \n in 2012 and 2018",
        caption = "Figure 3: This graph shows the Average lobster size of all the lobsters in 2012 and 2018 found in the five sites.")
@@ -184,7 +191,9 @@ ggplot(lob_av_size2, aes(x = year, y = av_size, fill = year)) +
 ggplot(lob_tidy2, aes(x = size_mm)) +
   geom_histogram(aes(fill = site)) +
   facet_grid(site ~ year, scales = "free_y") +
-  theme_dark() 
+  theme_light() +
+  theme(plot.caption = element_text(hjust = 0, size = 10),
+        title = element_text(size = 13))  
    # labs(x = "site", y = "Lobster size (mm)", 
 #       title = "Lobster size distributions observed at the 5 different sites \n in 2012 and 2018")
  # theme_update(plot.title = element_text(hjust = 0.5)) +
