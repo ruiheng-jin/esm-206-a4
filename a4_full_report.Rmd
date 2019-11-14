@@ -18,20 +18,50 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### RESULTS A
 
-#### RESULTS B
+```{r}
+# data structure: each site has several transects, each transect has ABCD replicates
 
+# uncount lobsters so each lobster has its own row
+lob_tidy <- lob_abun %>% 
+  tidyr::uncount(count)
+```
 
+```{r}
+# count total lobster count by year and site
+lob_yr_site <- lob_tidy %>%
+  count(year, site)
 
----
-title: "a4_results_b"
-author: "Qusai Bhaijeewala"
-date: "11/8/2019"
-output: html_document
----
+# make a line graph of abundance change through the years
 
+## option 1
+#ggplot(lob_yr_site, aes(x = year, y = n, color = site)) +
+#  geom_line(size = .5) +
+#  geom_point()
+
+## option 2
+lob_yr_site$site2 <- factor(lob_yr_site$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
+
+ggplot(lob_yr_site, aes(x = year, y = n)) +
+  facet_wrap(~site2) +
+  geom_line(color = "#b62b2b", size = 1) +
+  geom_point(color = "#4b1313", size = 2) +
+  labs(x = "", 
+       y = "Lobster abundance", 
+       title = "Lobster Abundance at Five Sites (2012-2018)",
+       caption = "Figure 1. Lobster abundance from 5 study sites, from year 2012 to 2018.") +
+  scale_x_continuous(expand = expand_scale(add = c(1, 1)),
+                     breaks = c(2012, 2014, 2016, 2018)) +
+  scale_y_continuous(expand = expand_scale(add = c(0, 0)),
+                     limits = c(0, 1000)) +
+  theme_light() +
+  theme(plot.caption = element_text(hjust = 0, size = 10),
+        title = element_text(size = 13))
+```
 
 
 ```{r setup, include=FALSE}
+#### RESULTS B
+
 knitr::opts_chunk$set(
 	echo = FALSE,
 	message = FALSE,
@@ -129,8 +159,8 @@ ggplot(lob_size, aes(x = size_mm)) +
 
 There are two marine protected area (MPA), Naples and Isla Vista. These two sites have increased their lobster counts and the sizes of the lobsters as well. The sites of Mohalk and Carpenteria have also icreased in abundance and size. The site called Arroyo Quemado has the leased increase in spiny lobster size.
 
------------------------------------------------------------------
-## Results C Section {.tabset .tabset-fade}
+
+#### Results C Section {.tabset .tabset-fade}
 
 
 ```{r}
@@ -148,7 +178,7 @@ ggplot(lob_av_size, aes(x = year, y = av_size)) +
 
 ```
 
-### next graph
+##### next graph
 
 ```{r}
 lob_av_size2 <- lob_tidy2 %>% 
@@ -170,7 +200,7 @@ ggplot(lob_av_size2, aes(x = year, y = av_size, fill = year)) +
 ```
 
 
-### Messing around with the data 
+##### Messing around with the data 
 
 ```{r}
 
@@ -201,7 +231,7 @@ ggplot(lob_tidy2, aes(x = size_mm)) +
 ```
 
 
-### Making a summary table for comparing MPA vs. non-MPA, 2012 and 2018
+##### Making a summary table for comparing MPA vs. non-MPA, 2012 and 2018
 ```{r}
 
 lob_c_sum <- lob_tidy2 %>% 
@@ -221,7 +251,6 @@ lob_c_sum
 
 
 
-#### RESULTS C
 
 
 ### SUMMARY
