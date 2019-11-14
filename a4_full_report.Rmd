@@ -19,7 +19,6 @@ library(janitor)
 lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
                      na = "-99999") %>% 
   clean_names()
-
 ```
 ### INTRODUCTION
 
@@ -82,7 +81,6 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
 >>>>>>> afed31b235a42d942360c034d415b06328d13352
 
 ```{r}
-
 # data structure: each site has several transects, and within each transect they have either A, B, C, or D replicates. The count column can has multiple counts of the same transect number and replicate, we want to make each of those counts a seperate row.
 
 # uncount lobsters so each lobster has its own row
@@ -103,12 +101,9 @@ two within MPAs (Naples and Isla Vista) and three outside (Arroyo Quemado, Mohaw
 ## trying mike's code out to change the axis's
 lob_tidy2$site_name <- factor(lob_tidy2$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
 
-
-
 # filtering years of 2012 and 2018 only
 lob_size <- lob_tidy2 %>% 
   filter(year %in% c(2012,2018))
-
 
 #graphing size distributions of lobster size at five sites from two years, 2012, 2018
 # I have to spell the sites out and maybe get rid of the legend. I wrote something in the caption as a place holder, will make it better later.
