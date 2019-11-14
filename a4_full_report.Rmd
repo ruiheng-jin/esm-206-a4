@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 ```{r}
 library(tidyverse)
 library(janitor)
+library(DT)
 lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
                      na = "-99999") %>% 
   clean_names()
@@ -227,12 +228,8 @@ lob_c_sum <- lob_tidy2 %>%
             sd = sd(size_mm),
             sample_size = n())
 
-lob_c_sum
+datatable(lob_c_sum)
 
-
-  
-
-  
 ```
  ---------------------------------------------------------------
  --------------------------------------------------------------
