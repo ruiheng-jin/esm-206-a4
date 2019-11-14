@@ -223,7 +223,7 @@ ggplot(lob_tidy2, aes(x = size_mm)) +
 
 lob_c_sum <- lob_tidy2 %>% 
   filter(year %in% c(2012, 2018)) %>% 
-  group_by(year, mpa_status) %>% 
+  group_by(mpa_status, year) %>% 
   summarize(mean = mean(size_mm),
             sd = sd(size_mm),
             sample_size = n())
