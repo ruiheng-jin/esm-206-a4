@@ -48,20 +48,13 @@ lob_tidy$site_name <- factor(lob_tidy$site, labels = c("Arroyo Quemado", "Carpin
 ```{r}
 # count total lobster count by year and site
 lob_yr_site <- lob_tidy %>%
-  count(year, site)
-
-# make a line graph of abundance change through the years
-
-## option 1
-#ggplot(lob_yr_site, aes(x = year, y = n, color = site)) +
-#  geom_line(size = .5) +
-#  geom_point()
-
-## option 2
-lob_yr_site$site_name <- factor(lob_yr_site$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
+  count(year, site) %>% 
+  mutate(mpa = site %in% c("IVEE", "NAPL"),
+         mpa_status = factor(mpa, labels = c("non-MPA", "MPA")),
+         site_name = factor(site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples")))  
 
 ggplot(lob_yr_site, aes(x = year, y = n)) +
-  facet_wrap(~site_name) +
+  facet_wrap(site_name~mpa_status) +
   geom_line(color = "#b62b2b", size = 1) +
   geom_point(color = "#4b1313", size = 2) +
   labs(x = "", 
