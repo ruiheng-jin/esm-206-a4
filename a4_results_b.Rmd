@@ -135,7 +135,7 @@ lob_av_size2 <- lob_tidy2 %>%
 
 ggplot(lob_av_size2, aes(x = year, y = av_size, fill = year)) +
   geom_col(show.legend = FALSE) +
-  facet_wrap(site_name ~ mpa) +
+  facet_wrap(site_name ~ mpa_status) +
   scale_x_continuous(breaks = c(2012, 2018),
                      labels = c("2012", "2018")) +
   theme_light() +
