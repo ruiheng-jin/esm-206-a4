@@ -274,6 +274,7 @@ lob_2018 <- lob_tidy2 %>%
 
 
 ```
+
 ```{r eval=FALSE, include=FALSE}
 # more trying of T stuff
 
