@@ -140,7 +140,7 @@ ggplot(lob_size, aes(x = size_mm)) +
 There are two marine protected area (MPA), Naples and Isla Vista. These two sites have increased their lobster counts and the sizes of the lobsters as well. The sites of Mohalk and Carpenteria have also icreased in abundance and size. The site called Arroyo Quemado has the leased increase in spiny lobster size.
 
 
-#### RESULTS C: COMPARING MEAN LOBSTER SIZES AT MPA VS NON-MPA SITES IN 2012 AND 2018 {.tabset .tabset-fade}
+#### RESULTS C: COMPARING MEAN LOBSTER SIZES AT MPA VS NON-MPA SITES IN 2012 AND 2018 
 
 
 ```{r}
@@ -238,20 +238,77 @@ datatable(lob_c_sum)
  
  
 ```{r}
-lob_mpa <- lob_tidy2 %>% 
-  filter(year %in% c(2012,2018)) %>% 
+lob_mpa_2012 <- lob_tidy2 %>% 
+  filter(year == "2012") %>% 
+  filter(mpa_status == "MPA") %>% 
+  pull(size_mm)
+  
+  
+lob_mpa_2018 <- lob_tidy2 %>% 
+  filter(year == "2018") %>% 
   filter(mpa_status == "MPA") %>% 
   pull(size_mm)
 
-lob_non_mpa <- lob_tidy2 %>% 
-  filter(year %in% c(2012,2018)) %>% 
+lob_non_mpa_2012 <- lob_tidy2 %>% 
+  filter(year == "2012") %>% 
   filter(mpa_status == "non-MPA") %>% 
   pull(size_mm)
 
-t.test(lob_mpa)
 
-t.test(lob_non_mpa)
+lob_non_mpa_2018 <- lob_tidy2 %>% 
+  filter(year == "2018") %>% 
+  filter(mpa_status == "non-MPA") %>% 
+  pull(size_mm)
+
+
+
+
+#mpa_12_18_ttest <- t.test(lob_mpa_2012, lob_mpa_2018)
+
+#non_mpa_12_18_ttest <- t.test(lob_non_mpa_2012, lob_non_mpa_2018)
+
+
+
+#lob_mpa_non_2012 <- t.test(lob_mpa_2012, lob_non_mpa_2012)
+
+
+#lob_mpa_non_2018 <- t.test(lob_mpa_2018, lob_non_mpa_2018)
+
+
+
+
 ```
+
+
+```{r}
+#running 2 sample t test, we will run 4
+# one for mpa site for 2012 and 2018, on for non mpa for 2012 and 2018, another for mpa and non mpa for 2012, and a mpa and non mpa for 2018
+
+
+mpa_12_18_ttest <- t.test(lob_mpa_2012, lob_mpa_2018) #one for mpa site for 2012 and 2018,
+
+mpa_12_18_ttest
+
+non_mpa_12_18_ttest <- t.test(lob_non_mpa_2012, lob_non_mpa_2018) #on for non mpa for 2012 and 2018
+
+
+non_mpa_12_18_ttest
+
+
+lob_mpa_non_2012 <- t.test(lob_mpa_2012, lob_non_mpa_2012) # another for mpa and non mpa for 2012,
+
+lob_mpa_non_2012 
+
+
+lob_mpa_non_2018 <- t.test(lob_mpa_2018, lob_non_mpa_2018) # mpa and non mpa for 2018
+
+lob_mpa_non_2018
+
+
+
+
+```
+
 
 ```{r eval=FALSE, include=FALSE}
 ### ntrying to do T shits
