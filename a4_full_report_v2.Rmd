@@ -136,6 +136,7 @@ There are two marine protected area (MPA), Naples and Isla Vista. These two site
 ### RESULTS C
 #### COMPARING MEAN LOBSTER SIZES AT MPA VS NON-MPA SITES IN 2012 AND 2018 
 
+
 ##### Making a summary table for comparing MPA vs. non-MPA, 2012 and 2018
 ```{r}
 
