@@ -42,12 +42,15 @@ lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
 # data structure: each site has several transects, each transect has ABCD replicates
 
 # uncount lobsters so each lobster has its own row
+# Create a new row that says TRUE or FALSE for MPA Sites which are IVEE and NAPL
 lob_tidy <- lob_abun %>% 
   tidyr::uncount(count) %>% 
   mutate(mpa = site %in% c("IVEE", "NAPL"))
 
 # making a new column changing TRUE or FALSE to MPA and non-MPA
 lob_tidy$mpa_status <- factor(lob_tidy$mpa, labels = c("non-MPA", "MPA"))
+
+# making a new column that gives the full names of the sites so that we can use this column later in graphs
 
 lob_tidy$site_name <- factor(lob_tidy$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
 ```
