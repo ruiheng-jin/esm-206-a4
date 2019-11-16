@@ -18,7 +18,8 @@ knitr::opts_chunk$set(
 # attaching packages of tidyverse, janitor, and DT for data tables.
 library(tidyverse)
 library(janitor)
-library(DT)
+library(kableExtra)
+
 
 # read in lobster abundance data
 # change all the -99999 in the cells to na
@@ -221,6 +222,29 @@ lob_c_sum <- lob_tidy2 %>%
             sample_size = n())
 
 datatable(lob_c_sum)
+
+lob_c_sum %>% 
+  kable(col.names = c("MPA Status",
+                      "Year",
+                      "Mean Lobster Size (mm)",
+                      "Standard Deviation",
+                      "Sample Size")) %>% 
+  kable_styling(bootstrap_options = "striped", 
+                full_width = F,
+                position = "left"
+                ) %>%
+  add_header_above(c("LOBSTER SIZE METRICS" = 5))
+
+trees_sub %>% 
+  kable(col.names = c("Diameter (inches)", 
+                     "Height (ft)", 
+                     "Volume (cubic feet)")
+        ) %>% 
+  kable_styling(bootstrap_options = "striped", 
+                full_width = F,
+                position = "left"
+                ) %>% 
+  add_header_above(c("Black cherry tree metrics" = 3))
 
 ```
  ---------------------------------------------------------------
