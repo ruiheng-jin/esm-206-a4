@@ -21,15 +21,16 @@ lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
                      na = "-99999") %>% 
   clean_names()
 ```
-### INTRODUCTION
+## INTRODUCTION
 
 
-### DATA AND METHODS
+## DATA AND METHODS
 
 
-### RESULTS {.tabset .tabset-fade}
+## RESULTS {.tabset .tabset-fade}
 
-#### RESULTS A: CHANGES IN ANNUAL LOBSTER ABUNDANCE AT FIVE SITES
+### RESULTS A
+#### CHANGES IN ANNUAL LOBSTER ABUNDANCE AT FIVE SITES
 
 ```{r}
 # data structure: each site has several transects, each transect has ABCD replicates
@@ -75,7 +76,8 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
 ```
 
 
-#### RESULTS B: SHIFTS IN LOBSTER SIZE DISTRIBUTION FROM 2012 TO 2018
+### RESULTS B
+#### SHIFTS IN LOBSTER SIZE DISTRIBUTION FROM 2012 TO 2018
 
 ```{r}
 # data structure: each site has several transects, and within each transect they have either A, B, C, or D replicates. The count column can has multiple counts of the same transect number and replicate, we want to make each of those counts a seperate row.
@@ -140,7 +142,8 @@ ggplot(lob_size, aes(x = size_mm)) +
 There are two marine protected area (MPA), Naples and Isla Vista. These two sites have increased their lobster counts and the sizes of the lobsters as well. The sites of Mohalk and Carpenteria have also icreased in abundance and size. The site called Arroyo Quemado has the leased increase in spiny lobster size.
 
 
-#### RESULTS C: COMPARING MEAN LOBSTER SIZES AT MPA VS NON-MPA SITES IN 2012 AND 2018 
+### RESULTS C
+#### COMPARING MEAN LOBSTER SIZES AT MPA VS NON-MPA SITES IN 2012 AND 2018 
 
 
 ```{r}
@@ -287,27 +290,51 @@ lob_non_mpa_2018 <- lob_tidy2 %>%
 
 mpa_12_18_ttest <- t.test(lob_mpa_2012, lob_mpa_2018) #one for mpa site for 2012 and 2018,
 
-mpa_12_18_ttest
+
 
 non_mpa_12_18_ttest <- t.test(lob_non_mpa_2012, lob_non_mpa_2018) #on for non mpa for 2012 and 2018
 
 
-non_mpa_12_18_ttest
 
 
 lob_mpa_non_2012 <- t.test(lob_mpa_2012, lob_non_mpa_2012) # another for mpa and non mpa for 2012,
 
-lob_mpa_non_2012 
 
 
 lob_mpa_non_2018 <- t.test(lob_mpa_2018, lob_non_mpa_2018) # mpa and non mpa for 2018
 
-lob_mpa_non_2018
+
 
 
 
 
 ```
+
+
+#### 1) TTest for MPA sites in 2012 and 2018
+
+```{r}
+mpa_12_18_ttest
+```
+
+
+#### 2) TTest for NON MPA sites in 2012 and 2018
+```{r}
+non_mpa_12_18_ttest
+```
+
+#### 3) TTest for MPA and NON MPA sites in 2012
+
+```{r}
+lob_mpa_non_2012 
+```
+
+#### 4) TTest for MPA and NON MPA sites in 2018
+
+```{r}
+lob_mpa_non_2018
+```
+
 
 
 ```{r eval=FALSE, include=FALSE}
