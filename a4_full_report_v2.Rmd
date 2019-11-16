@@ -14,9 +14,15 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
+
+# attaching packages of tidyverse, janitor, and DT for data tables.
 library(tidyverse)
 library(janitor)
 library(DT)
+
+# read in lobster abundance data
+# change all the -99999 in the cells to na
+# turn all the headers to snake case
 lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
                      na = "-99999") %>% 
   clean_names()
