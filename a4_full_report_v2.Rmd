@@ -240,7 +240,7 @@ datatable(lob_c_sum)
  
  
  
-```{r}
+```{r preparing data for t tests}
 lob_mpa_2012 <- lob_tidy2 %>% 
   filter(year == "2012") %>% 
   filter(mpa_status == "MPA") %>% 
@@ -264,8 +264,6 @@ lob_non_mpa_2018 <- lob_tidy2 %>%
   pull(size_mm)
 
 
-
-
 #mpa_12_18_ttest <- t.test(lob_mpa_2012, lob_mpa_2018)
 
 #non_mpa_12_18_ttest <- t.test(lob_non_mpa_2012, lob_non_mpa_2018)
@@ -276,10 +274,6 @@ lob_non_mpa_2018 <- lob_tidy2 %>%
 
 
 #lob_mpa_non_2018 <- t.test(lob_mpa_2018, lob_non_mpa_2018)
-
-
-
-
 ```
 
 
@@ -292,7 +286,7 @@ mpa_12_18_ttest <- t.test(lob_mpa_2012, lob_mpa_2018) #one for mpa site for 2012
 
 
 
-non_mpa_12_18_ttest <- t.test(lob_non_mpa_2012, lob_non_mpa_2018) #on for non mpa for 2012 and 2018
+non_mpa_12_18_ttest <- t.test(lob_non_mpa_2012, lob_non_mpa_2018) #one for non mpa for 2012 and 2018
 
 
 
@@ -302,37 +296,50 @@ lob_mpa_non_2012 <- t.test(lob_mpa_2012, lob_non_mpa_2012) # another for mpa and
 
 
 lob_mpa_non_2018 <- t.test(lob_mpa_2018, lob_non_mpa_2018) # mpa and non mpa for 2018
+```
 
 
+```{r Cohen's d}
 
+# calculating cohen's d for mpa vs. non-mpa in 2012 and 2018
 
+mpa_12_18_cohen <- effsize::cohen.d(lob_mpa_2012, lob_mpa_2018) # comparing mpa sites b/n 2012 and 2018
 
+nonmpa_12_18_cohen <- effsize::cohen.d(lob_non_mpa_2012, lob_non_mpa_2018) # comparing non-mpa sites b/n 2012 and 2018
+
+mpa_non_12 <- effsize::cohen.d(lob_mpa_2012, lob_non_mpa_2012) # comparing mpa sites and non-mpa sites in 2012
+
+mpa_non_18 <- effsize::cohen.d(lob_mpa_2018, lob_non_mpa_2018) # comparing mpa sites and non-mpa sites in 2018
 
 ```
 
 
-#### 1) TTest for MPA sites in 2012 and 2018
+#### 1) TTest and Cohen's d for MPA sites in 2012 and 2018
 
 ```{r}
 mpa_12_18_ttest
+mpa_12_18_cohen
 ```
 
 
-#### 2) TTest for NON MPA sites in 2012 and 2018
+#### 2) TTest and Cohen's d for NON MPA sites in 2012 and 2018
 ```{r}
 non_mpa_12_18_ttest
+nonmpa_12_18_cohen
 ```
 
-#### 3) TTest for MPA and NON MPA sites in 2012
+#### 3) TTest and Cohen's d for MPA and NON MPA sites in 2012
 
 ```{r}
 lob_mpa_non_2012 
+mpa_non_12
 ```
 
-#### 4) TTest for MPA and NON MPA sites in 2018
+#### 4) TTest and Cohen's d for MPA and NON MPA sites in 2018
 
 ```{r}
 lob_mpa_non_2018
+mpa_non_18
 ```
 
 
