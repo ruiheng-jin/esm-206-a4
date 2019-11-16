@@ -32,7 +32,7 @@ lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
 
 
 ## DATA AND METHODS
-
+The data used in this report was collected by researchers from the Santa Barbara Coastal Long Term Ecological Research program (SBC LTER). The data includes observations of California spiny lobsters at five locations, two of which are Marine Protected Area (MPA). Three variables are studied in this report: year of observation, site of observation, size of lobster (mm). T tests (α = 0.05) and cohen’s d are performed for comparisons of mean lobster sizes between MPA sites and non-MPA sites, and between 2012 and 2018. Data analysis is performed using RStudio (Version 1.2.1335).
 
 ## RESULTS {.tabset .tabset-fade}
 
