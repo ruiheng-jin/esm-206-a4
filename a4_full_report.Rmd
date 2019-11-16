@@ -1,6 +1,6 @@
 ---
 title: "ESM 206 Assignment 4 Report"
-author: "Ruiheng Jin"
+author: "Ruiheng Jin and Qusai Bhaijeewala"
 date: "11/12/2019"
 output: html_document
 ---
