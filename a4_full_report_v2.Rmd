@@ -140,6 +140,8 @@ There are two marine protected area (MPA), Naples and Isla Vista. These two site
 ##### Making a summary table for comparing MPA vs. non-MPA, 2012 and 2018
 ```{r}
 
+# creating a summary table for the average sizes of lobsters, the standard deviation, and sample size for mpa sites and non mpa sites for 2012 and 2018.
+
 lob_c_sum <- lob_tidy2 %>% 
   filter(year %in% c(2012, 2018)) %>% 
   group_by(mpa_status, year) %>% 
@@ -148,6 +150,8 @@ lob_c_sum <- lob_tidy2 %>%
             sample_size = n())
 
 datatable(lob_c_sum)
+
+# makiing the table look nice
 
 lob_c_sum %>% 
   kable(col.names = c("MPA Status",
