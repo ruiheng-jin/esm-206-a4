@@ -308,7 +308,7 @@ lob_mpa_non_2018 <- t.test(lob_mpa_2018, lob_non_mpa_2018) # mpa and non mpa for
 ```
 
 
-```{r Cohen's d}
+```{r}
 
 # calculating cohen's d for mpa vs. non-mpa in 2012 and 2018
 
