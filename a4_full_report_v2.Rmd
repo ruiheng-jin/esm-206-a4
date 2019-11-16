@@ -250,18 +250,6 @@ lob_c_sum %>%
                 position = "left"
                 ) %>%
   add_header_above(c("LOBSTER SIZE METRICS" = 5))
-
-trees_sub %>% 
-  kable(col.names = c("Diameter (inches)", 
-                     "Height (ft)", 
-                     "Volume (cubic feet)")
-        ) %>% 
-  kable_styling(bootstrap_options = "striped", 
-                full_width = F,
-                position = "left"
-                ) %>% 
-  add_header_above(c("Black cherry tree metrics" = 3))
-
 ```
  ---------------------------------------------------------------
  --------------------------------------------------------------
