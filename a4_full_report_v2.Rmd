@@ -104,7 +104,7 @@ two within MPAs (Naples and Isla Vista) and three outside (Arroyo Quemado, Mohaw
 
 ```{r}
 
-# Making a new column that gives the full names of the sites so that we can use this column later in graphs.
+# Making a new column that gives the full names of the sites so that we can use this column later in graphs
 
 lob_tidy2$site_name <- factor(lob_tidy2$site, labels = c("Arroyo Quemado", "Carpinteria", "Isla Vista", "Mohawk", "Naples"))
 
