@@ -172,61 +172,58 @@ lob_c_sum %>%
  
  
 ```{r preparing data for t tests}
+# creating a data frame for lobster MPA sites in 2012
 lob_mpa_2012 <- lob_tidy2 %>% 
   filter(year == "2012") %>% 
   filter(mpa_status == "MPA") %>% 
   pull(size_mm)
   
-  
+# creating a data frame for lobster MPA sites in 2018 
 lob_mpa_2018 <- lob_tidy2 %>% 
   filter(year == "2018") %>% 
   filter(mpa_status == "MPA") %>% 
   pull(size_mm)
 
+# creating a data frame for non MPA sites in 2012
 lob_non_mpa_2012 <- lob_tidy2 %>% 
   filter(year == "2012") %>% 
   filter(mpa_status == "non-MPA") %>% 
   pull(size_mm)
 
-
+# creating a data frame for non MPA sites in 2018
 lob_non_mpa_2018 <- lob_tidy2 %>% 
   filter(year == "2018") %>% 
   filter(mpa_status == "non-MPA") %>% 
   pull(size_mm)
 
 
-#mpa_12_18_ttest <- t.test(lob_mpa_2012, lob_mpa_2018)
 
-#non_mpa_12_18_ttest <- t.test(lob_non_mpa_2012, lob_non_mpa_2018)
-
-
-
-#lob_mpa_non_2012 <- t.test(lob_mpa_2012, lob_non_mpa_2012)
-
-
-#lob_mpa_non_2018 <- t.test(lob_mpa_2018, lob_non_mpa_2018)
 ```
 
 
 ```{r}
-#running 2 sample t test, we will run 4
-# one for mpa site for 2012 and 2018, on for non mpa for 2012 and 2018, another for mpa and non mpa for 2012, and a mpa and non mpa for 2018
+# running four 2-sample t tests on lobster size
+# 1) Ttest for mpa site for 2012 and 2018
+# 2) Ttest for non mpa sites for 2012 and 2018 
+# 3) Ttests for mpa and non mpa sites for 2012  
+# 4) Ttest for mpa and non mpa sites for 2018
 
 
-mpa_12_18_ttest <- t.test(lob_mpa_2012, lob_mpa_2018) #one for mpa site for 2012 and 2018,
-
-
-
-non_mpa_12_18_ttest <- t.test(lob_non_mpa_2012, lob_non_mpa_2018) #one for non mpa for 2012 and 2018
-
-
-
-
-lob_mpa_non_2012 <- t.test(lob_mpa_2012, lob_non_mpa_2012) # another for mpa and non mpa for 2012,
+mpa_12_18_ttest <- t.test(lob_mpa_2012, lob_mpa_2018) # 1) Ttest for mpa site for 2012 and 2018
 
 
 
-lob_mpa_non_2018 <- t.test(lob_mpa_2018, lob_non_mpa_2018) # mpa and non mpa for 2018
+non_mpa_12_18_ttest <- t.test(lob_non_mpa_2012, lob_non_mpa_2018) # 2) Ttest for non mpa sites for 2012 and 2018
+
+
+
+lob_mpa_non_2012 <- t.test(lob_mpa_2012, lob_non_mpa_2012) # 3) Ttests for mpa and non mpa sites for 2012  
+
+
+
+
+lob_mpa_non_2018 <- t.test(lob_mpa_2018, lob_non_mpa_2018) # 4) Ttest for mpa and non mpa sites for 2018
+
 ```
 
 
