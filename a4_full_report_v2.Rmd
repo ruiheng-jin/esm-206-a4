@@ -138,8 +138,8 @@ There are two marine protected area (MPA), Naples and Isla Vista. These two site
 
 
 ##### Making a summary table for comparing MPA vs. non-MPA, 2012 and 2018
-```{r}
 
+```{r}
 # creating a summary table for the average sizes of lobsters, the standard deviation, and sample size for mpa sites and non mpa sites for 2012 and 2018.
 
 lob_c_sum <- lob_tidy2 %>% 
@@ -269,37 +269,6 @@ mpa_non_12
 lob_mpa_non_2018
 mpa_non_18
 ```
-
-
-
-```{r eval=FALSE, include=FALSE}
-### ntrying to do T shits
-lob_2012 <- lob_tidy2 %>% 
-  filter(year == "2012") %>% 
-  group_by(year, mpa_status) %>% 
-  summarize(mean = mean(size_mm),
-            sd = sd(size_mm),
-            sample_size = n())
-
-lob_2018 <- lob_tidy2 %>% 
-  filter(year ==  "2018") %>% 
-  group_by(year, mpa_status) %>% 
-  summarize(mean = mean(size_mm),
-            sd = sd(size_mm),
-            sample_size = n())
-
-
-
-
-
-```
-
-```{r eval=FALSE, include=FALSE}
-# more trying of T stuff
-
-lob_t <- t.test(lob_2012$size_mm, lob_2018$size_mm)
-```
-
 
 
 ## SUMMARY
