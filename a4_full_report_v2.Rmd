@@ -245,9 +245,9 @@ mpa_12_18_ttest
 mpa_12_18_cohen
 ```
 - Mean lobster sizes differ significantly at MPA sites between 2012 and 2018 (t(`r round(mpa_12_18_ttest$parameter, 2)`) = `r round(mpa_12_18_ttest$statistic, 2)`, p = `r round(mpa_12_18_ttest$p.value, 6)`). 
-- The 95% confidence interval is (`r mpa_12_18_ttest$conf.int`). 
+- The 95% confidence interval is (`r round(mpa_12_18_ttest$conf.int, 2)`). 
 - The effect size is large (Cohen's d = `r round(mpa_12_18_cohen$estimate, 3)`). 
-- Mean lobster sizes at MPA sites in 2012 and 2018 are `r mpa_12_18_ttest$estimate`, respectively.
+- Mean lobster sizes at MPA sites in 2012 and 2018 are `r round(mpa_12_18_ttest$estimate, 2)` mm, respectively.
 
 #### 2) Mean lobster size at non-MPA sites in 2012 and 2018
 ```{r include = FALSE}
@@ -255,9 +255,9 @@ non_mpa_12_18_ttest
 nonmpa_12_18_cohen
 ```
 - Mean lobster sizes at non-MPA sites do not differ significantly between 2012 and 2018 (t(`r round(non_mpa_12_18_ttest$parameter, 2)`) = `r round(non_mpa_12_18_ttest$statistic, 2)`, p = `r round(non_mpa_12_18_ttest$p.value, 4)`). 
-- The 95% confidence interval is (`r non_mpa_12_18_ttest$conf.int`). 
+- The 95% confidence interval is (`r round(non_mpa_12_18_ttest$conf.int, 2)`). 
 - The effect size is negligible (Cohen's d = `r round(nonmpa_12_18_cohen$estimate, 3)`). 
-- Mean lobster sizes at non-MPA sites in 2012 and 2018 are `r non_mpa_12_18_ttest$estimate`, respectively.
+- Mean lobster sizes at non-MPA sites in 2012 and 2018 are `r round(non_mpa_12_18_ttest$estimate, 2)` mm, respectively.
 
 
 
@@ -268,9 +268,9 @@ lob_mpa_non_2012
 mpa_non_12
 ```
 - Mean lobster sizes differ significantly between MPA and non-MPA sites in 2012 (t(`r round(lob_mpa_non_2012$parameter, 2)`) = `r round(lob_mpa_non_2012$statistic, 2)`, p = `r round(lob_mpa_non_2012$p.value, 4)`). 
-- The 95% confidence interval is (`r lob_mpa_non_2012$conf.int`). 
+- The 95% confidence interval is (`r round(lob_mpa_non_2012$conf.int, 2)`). 
 - The effect size is medium (Cohen's d = `r round(mpa_non_12$estimate, 3)`). 
-- In 2012, mean lobster sizes at MPA and non-MPA sites are `r lob_mpa_non_2012$estimate`, respectively.
+- In 2012, mean lobster sizes at MPA and non-MPA sites are `r round(lob_mpa_non_2012$estimate, 2)` mm, respectively.
 
 #### 4) Mean lobster size at MPA and non-MPA sites in 2018
 
@@ -278,10 +278,10 @@ mpa_non_12
 lob_mpa_non_2018
 mpa_non_18
 ```
-- Mean lobster sizes differ significantly between MPA and non-MPA sites in 2012 (t(`r round(lob_mpa_non_2018$parameter, 2)`) = `r round(lob_mpa_non_2018$statistic, 2)`, p = `r round(lob_mpa_non_2018$p.value, 4)`). 
-- The 95% confidence interval is (`r lob_mpa_non_2018$conf.int`). 
+- Mean lobster sizes differ significantly between MPA and non-MPA sites in 2012 (t(`r round(lob_mpa_non_2018$parameter, 2)`) = `r round(lob_mpa_non_2018$statistic, 2)`, p = `r round(lob_mpa_non_2018$p.value, 14)`). 
+- The 95% confidence interval is (`r round(lob_mpa_non_2018$conf.int, 2)`). 
 - The effect size is small (Cohen's d = `r round(mpa_non_18$estimate, 3)`). 
-- In 2018, mean lobster sizes at MPA and non-MPA sites are `r lob_mpa_non_2018$estimate`, respectively.
+- In 2018, mean lobster sizes at MPA and non-MPA sites are `r round(lob_mpa_non_2018$estimate, 2)` mm, respectively.
 
 
 ## SUMMARY
