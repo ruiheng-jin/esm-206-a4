@@ -156,7 +156,8 @@ lob_c_sum %>%
                       "Year",
                       "Mean Lobster Size (mm)",
                       "Standard Deviation",
-                      "Sample Size")) %>% 
+                      "Sample Size"),
+        caption = "Table 1. Mean lobster size, standard deviation and sample size for MPA and non-MPA sites in 2012 and 2018.") %>% 
   kable_styling(bootstrap_options = "striped", 
                 full_width = F,
                 position = "left"
