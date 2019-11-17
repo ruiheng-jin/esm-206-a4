@@ -149,8 +149,6 @@ lob_c_sum <- lob_tidy2 %>%
             sd = sd(size_mm),
             sample_size = n())
 
-datatable(lob_c_sum)
-
 # makiing the table look nice
 
 lob_c_sum %>% 
