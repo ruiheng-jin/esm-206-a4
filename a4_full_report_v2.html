@@ -384,7 +384,7 @@ summary {
 </div>
 <div id="data-and-methods" class="section level2">
 <h2>DATA AND METHODS</h2>
-<p>The data used in this report was collected by researchers from the Santa Barbara Coastal Long Term Ecological Research program (SBC LTER). The data includes observations of California spiny lobsters at five locations, two of which are Marine Protected Area (MPA). Three variables are studied in this report: year of observation, site of observation, size of lobster (mm). T tests (α = 0.05) and cohen’s d are performed for comparisons of mean lobster sizes between MPA sites and non-MPA sites, and between 2012 and 2018. Data analysis is performed using RStudio (Version 1.2.1335).</p>
+<p>The data used in this report was collected by researchers from the Santa Barbara Coastal Long Term Ecological Research program (SBC LTER). The data includes observations of California spiny lobsters at five locations, two of which are Marine Protected Area (MPA). Three variables are studied in this report: year of observation, site of observation, size of lobster (mm). Two-sample, two-sided, unpaired tests (α = 0.05) and cohen’s d are performed for comparisons of mean lobster sizes between MPA sites and non-MPA sites, and between 2012 and 2018. Data analysis is performed using RStudio (Version 1.2.1335).</p>
 </div>
 <div id="results" class="section level2 tabset tabset-fade">
 <h2>RESULTS</h2>
@@ -529,20 +529,91 @@ MPA
 </div>
 <div id="mean-lobster-size-at-mpa-sites-in-2012-and-2018" class="section level4">
 <h4>1) Mean lobster size at MPA sites in 2012 and 2018</h4>
-<p>t(32.5) = -4.69, p = 4.810^{-5}</p>
-<p>Cohen’s d = -0.87</p>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  lob_mpa_2012 and lob_mpa_2018
+## t = -4.6879, df = 32.496, p-value = 4.76e-05
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -14.617486  -5.765954
+## sample estimates:
+## mean of x mean of y 
+##  67.37500  77.56672</code></pre>
+<pre><code>## 
+## Cohen&#39;s d
+## 
+## d estimate: -0.8700026 (large)
+## 95 percent confidence interval:
+##      lower      upper 
+## -1.2228615 -0.5171437</code></pre>
+<p>Mean lobster sizes differ significantly at MPA sites between 2012 and 2018 (t(32.5) = -4.69, p = 4.810^{-5}). The 95% confidence interval is (-14.6174861, -5.7659544). The effect size is large (Cohen’s d = -0.87). Mean lobster sizes at MPA sites in 2012 and 2018 are 67.375, 77.5667203, respectively.</p>
 </div>
 <div id="mean-lobster-size-at-non-mpa-sites-in-2012-and-2018" class="section level4">
 <h4>2) Mean lobster size at non-MPA sites in 2012 and 2018</h4>
-<p>t(296.01) = 1.33, p = 0.1831 Cohen’s d = 0.121</p>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  lob_non_mpa_2012 and lob_non_mpa_2018
+## t = 1.3343, df = 296.01, p-value = 0.1831
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.6196267  3.2289443
+## sample estimates:
+## mean of x mean of y 
+##  74.92462  73.61996</code></pre>
+<pre><code>## 
+## Cohen&#39;s d
+## 
+## d estimate: 0.1213778 (negligible)
+## 95 percent confidence interval:
+##       lower       upper 
+## -0.04070983  0.28346543</code></pre>
+<p>Mean lobster sizes at non-MPA sites do not differ significantly between 2012 and 2018 (t(296.01) = 1.33, p = 0.1831). The 95% confidence interval is (-0.6196267, 3.2289443). The effect size is negligible (Cohen’s d = 0.121). Mean lobster sizes at non-MPA sites in 2012 and 2018 are 74.9246231, 73.6199643, respectively.</p>
 </div>
 <div id="mean-lobster-size-at-mpa-and-non-mpa-sites-in-2012" class="section level4">
 <h4>3) Mean lobster size at MPA and non-MPA sites in 2012</h4>
-<p>t(42.09) = -3.25, p = 0.0023 Cohen’s d = -0.61</p>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  lob_mpa_2012 and lob_non_mpa_2012
+## t = -3.2516, df = 42.088, p-value = 0.002263
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -12.234960  -2.864287
+## sample estimates:
+## mean of x mean of y 
+##  67.37500  74.92462</code></pre>
+<pre><code>## 
+## Cohen&#39;s d
+## 
+## d estimate: -0.6098605 (medium)
+## 95 percent confidence interval:
+##      lower      upper 
+## -0.9892805 -0.2304404</code></pre>
+<p>Mean lobster sizes differ significantly between MPA and non-MPA sites in 2012 (t(42.09) = -3.25, p = 0.0023). The 95% confidence interval is (-12.2349597, -2.8642865). The effect size is medium (Cohen’s d = -0.61). In 2012, mean lobster sizes at MPA and non-MPA sites are 67.375, 74.9246231, respectively.</p>
 </div>
 <div id="mean-lobster-size-at-mpa-and-non-mpa-sites-in-2018" class="section level4">
 <h4>4) Mean lobster size at MPA and non-MPA sites in 2018</h4>
-<p>t(1239.51) = 7.31, p = 0 Cohen’s d = 0.351</p>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  lob_mpa_2018 and lob_non_mpa_2018
+## t = 7.3071, df = 1239.5, p-value = 4.876e-13
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2.887090 5.006422
+## sample estimates:
+## mean of x mean of y 
+##  77.56672  73.61996</code></pre>
+<pre><code>## 
+## Cohen&#39;s d
+## 
+## d estimate: 0.3514986 (small)
+## 95 percent confidence interval:
+##     lower     upper 
+## 0.2510969 0.4519004</code></pre>
+<p>Mean lobster sizes differ significantly between MPA and non-MPA sites in 2012 (t(1239.51) = 7.31, p = 0). The 95% confidence interval is (2.8870903, 5.0064215). The effect size is small (Cohen’s d = 0.351). In 2018, mean lobster sizes at MPA and non-MPA sites are 77.5667203, 73.6199643, respectively.</p>
 </div>
 </div>
 </div>
