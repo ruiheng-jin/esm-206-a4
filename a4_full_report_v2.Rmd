@@ -117,13 +117,13 @@ lob_size <- lob_tidy2 %>%
 #graphing size distributions of lobster size at five sites from two years, 2012, 2018
 
 ggplot(lob_size, aes(x = size_mm)) +
-  geom_histogram(aes(fill = site_name)) +
-  facet_grid(site ~ year, scales = "free_y") +
+  geom_density(aes(fill = site_name)) +
+  facet_grid(site ~ year) +
   theme_light() +
   theme(plot.caption = element_text(hjust = 0, size = 10),
         title = element_text(size = 11)) +
   labs(x = "Lobster size (mm)", 
-         y = "Lobster Count", 
+         y = "Density", 
          fill = "Site Name",
        title = "Lobster Size Distributions Observed at the 5 Different Sites in 2012 and 2018",
        caption = "Figure 2: This graph shows the size distributions of all the lobsters in 2012 and 2018 found in the five sites.")
@@ -131,7 +131,7 @@ ggplot(lob_size, aes(x = size_mm)) +
 
 ```
 
-There are two marine protected area (MPA), Naples and Isla Vista. These two sites have increased their lobster counts and the sizes of the lobsters as well. In 2012, Naples and IV sites had very little spiny lobster population and there was not that many variety of sizes either. The sites of Carpenteria increased almost as significantly in abundance and size as the two mpa sites. Mohald increased less in abundance, but shifted in size distribution. The site called Arroyo Quemado has the least increase in spiny lobster count, but became more abundant in bigger lobster.
+There are two marine protected area (MPA), Naples and Isla Vista. Naples has a higher percentage of larger lobsters in 2018 than in 2012. Ilsa Vista, another MPA site, has an even bigger shift is lobster size. There are a lot of smaller lobsters in 2012, but they become much bigger in 2018. The change in size distributions for Naples and Ilsa Vista makes sense. Because these sites are marine protected areas, these lobsters have been allowed to grow old and larger in size. For the other three sites, there is a shift towards larger lobster over time, but the shift is much smaller. The biggest shift in lobster size over time for the non mpa sites is seen at the site Carpinteria.
 
 
 ### RESULTS C
