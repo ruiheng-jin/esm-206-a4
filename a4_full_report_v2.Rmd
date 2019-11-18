@@ -83,7 +83,7 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
         title = element_text(size = 11)) 
 ```
 
-Isla Vista has the most noticable increase in lobster abundance from 2012 to 2018. Naples and Mohawk have similar increasing trends, although Naples experienced an increase between 2017 and 2018, while Mohawk a decrease. Carpinteria experienced a large increase between 2016 and 2017, but also a large decrease the following year. Arroyo Quemado's abundance remained low throughout the 2012-2018 period.
+Isla Vista has the most noticable increase in lobster abundance from 2012 to 2018. Additionally, further analysis is needed to explain the sudden spike in lobster abundance in Isla Vista after 2016. Naples and Mohawk have similar increasing trends, although Naples experienced an increase between 2017 and 2018, while Mohawk a decrease. Carpinteria experienced a large increase between 2016 and 2017, but also a large decrease the following year. The  The Arroyo Quemado's abundance remained low throughout the 2012-2018 period.
 
 ### RESULTS B
 #### **SHIFTS IN LOBSTER SIZE DISTRIBUTION FROM 2012 TO 2018**
