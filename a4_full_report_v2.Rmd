@@ -295,4 +295,17 @@ mpa_non_18
 - Mean lobster size at non MPA sites from 2012 to 2018 are not significantly different.
 - Mean lobster size at MPA sites and non MPA sites in 2012 are significantly different.
 - Mean lobster size at MPA sites and non MPA sites in 2018 are significantly different.
+
 ## REFERENCE
+
+
+- Hadley Wickham (2017). tidyverse: Easily Install and Load the 'Tidyverse'. R
+  package version 1.2.1. https://CRAN.R-project.org/package=tidyverse
+- Hao Zhu (2019). kableExtra: Construct Complex Table with 'kable' and Pipe
+  Syntax. R package version 1.1.0. https://CRAN.R-project.org/package=kableExtra  
+- Reed D. 2019. SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster ( Panulirus interruptus ), ongoing since 2012. Environmental Data Initiative. https://doi.org/10.6073/pasta/a593a675d644fdefb736750b291579a0 . Dataset accessed 11/12/2019.
+- Sam Firke (2019). janitor: Simple Tools for Examining and Cleaning Dirty Data. R
+  package version 1.2.0. https://CRAN.R-project.org/package=janitor
+- Torchiano M (2019). _effsize: Efficient Effect Size Computation_. doi:
+10.5281/zenodo.1480624 (URL: https://doi.org/10.5281/zenodo.1480624), R package
+version 0.7.6, <URL: https://CRAN.R-project.org/package=effsize>. 
