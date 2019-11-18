@@ -136,7 +136,7 @@ ggplot(lob_size, aes(x = size_mm), alpha = 0.7) +
          y = "Density", 
          fill = "Site Name",
        title = "Probability Density for Lobster Sizes Observed at the 5 Different Sites \n in 2012 and 2018",
-       caption = "Figure 3: This graph shows the density of sizes (mm) of all the lobsters in 2012 and 2018 found in the five sites.")
+       caption = "Figure 3: This graph shows the density of sizes (mm) of all the lobsters in 2012 and 2018 found \n in the five sites.")
 
 ```
 
