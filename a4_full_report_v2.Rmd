@@ -247,13 +247,9 @@ mpa_12_18_cohen
 - Mean lobster sizes differ significantly at MPA sites between 2012 and 2018 (t(`r round(mpa_12_18_ttest$parameter, 2)`) = `r round(mpa_12_18_ttest$statistic, 2)`, p = `r round(mpa_12_18_ttest$p.value, 6)`). 
 - The 95% confidence interval is (`r round(mpa_12_18_ttest$conf.int, 2)`). 
 - The effect size is large (Cohen's d = `r round(mpa_12_18_cohen$estimate, 3)`). 
-<<<<<<< HEAD
 - Mean lobster sizes at MPA sites in 2012 and 2018 are `r round(mpa_12_18_ttest$estimate, 2)` mm, respectively. The difference in means is `r round(diff(head(mpa_12_18_ttest$estimate, 1) - head(mpa_12_18_ttest$estimate, 2)),2)` mm.
 
-=======
-- Mean lobster sizes at MPA sites in 2012 and 2018 are `r round(mpa_12_18_ttest$estimate, 2)` mm, respectively.
-- Difference in mean lobster sizes:
->>>>>>> d14e5f1d33cd2e3ee6129a9cdbd9c7a17e6e2531
+
 
 #### 2) Mean lobster size at non-MPA sites in 2012 and 2018
 ```{r include = FALSE}
