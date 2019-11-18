@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 library(tidyverse)
 library(janitor)
 library(kableExtra)
+library(effsize)
 
 
 # read in lobster abundance data
