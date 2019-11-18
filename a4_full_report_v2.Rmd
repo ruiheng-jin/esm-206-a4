@@ -34,8 +34,11 @@ lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
 
 In 2012, the Santa Barbara Coastal Long Term Ecological Research program (SBC LTER) started collecting data on spiny lobster to determine if their populations and sizes were affected by fishing intensity. The purpose of this report is to determine the changes in lobster abundance and lobster size from 2012 to 2018 from five sites in Santa Barbara County. The five sites are Arroyo Quemado, Carpinteria, Isla Vista, Mohawk, Naples. Special attention will be given to the two Marine Protected Area (MPA) of Naples and Isla Vista. Additionally, this report will compare average lobster size in millimeters for MPA and NON MPA sites in the years 2012 and 2018.These finding will pave the way for further analysis that determines the cause of certain trends in lobster population and size changes.
 
-![Figure 1. California Spiny Lobster Credit: https://www.vice.com/en_us/article/gvk5kq/why-we-dont-eat-california-spiny-lobsters-even-though-they-taste-better](lob_ster.jpeg)
+```{r, out.width = "800px"}
+knitr::include_graphics("lob_ster.jpeg")
+```
 
+Figure 1. California Spiny Lobster Credit: [Vice.com](https://www.vice.com/en_us/article/gvk5kq/why-we-dont-eat-california-spiny-lobsters-even-though-they-taste-better)
 
 
 ## DATA AND METHODS
