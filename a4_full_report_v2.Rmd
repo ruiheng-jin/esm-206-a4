@@ -291,6 +291,11 @@ mpa_non_18
 
 
 ## SUMMARY
-
-
+- Isla Vista has the most increase in lobster abundance from 2012 to 2018 wth a large spike after 2016.
+- There was a large decrease in lobster abundance in Carpenteria from 2017 to 2018.
+- The sites with the biggest lobster size shifts from 2012 to 2018 are Isla Vista, Naples, and Carpenteria.
+- Mean lobster size at MPA sites from 2012 to 2018 are significantly different.
+- Mean lobster size at non MPA sites from 2012 to 2018 are not significantly different.
+- Mean lobster size at MPA sites and non MPA sites in 2012 are significantly different.
+- Mean lobster size at MPA sites and non MPA sites in 2018 are significantly different.
 ## REFERENCE
