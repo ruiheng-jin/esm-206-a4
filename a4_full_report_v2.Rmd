@@ -30,6 +30,7 @@ lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
 ```
 ## INTRODUCTION
 
+The purpose of this report is to find trends in lobster abudance and lobster size through 2012 - 2018 from five sites in Santa Barbara County. The five sites are Arroyo Quemado, Carpinteria, Isla Vista, Mohawk, Naples.
 
 ## DATA AND METHODS
 The data used in this report was collected by researchers from the Santa Barbara Coastal Long Term Ecological Research program (SBC LTER). The data includes observations of California spiny lobsters at five locations, two of which are Marine Protected Area (MPA). Three variables are studied in this report: year of observation, site of observation, size of lobster (mm). Two-sample, two-sided, unpaired tests (α = 0.05) and cohen’s d are performed for comparisons of mean lobster sizes between MPA sites and non-MPA sites, and between 2012 and 2018. Data analysis is performed using RStudio (Version 1.2.1335).
