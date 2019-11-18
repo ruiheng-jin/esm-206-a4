@@ -48,7 +48,7 @@ The data used in this report was collected by researchers from the Santa Barbara
 ### RESULTS A
 #### **CHANGES IN ANNUAL LOBSTER ABUNDANCE AT FIVE SITES**
 
-Isla Vista has the most noticeable increase in lobster abundance from 2012 to 2018. Additionally, further analysis is needed to explain the sudden spike in lobster abundance in Isla Vista after 2016. Naples and Mohawk have similar increasing trends, although Naples experienced an increase between 2017 and 2018, while Mohawk a decrease. Carpinteria experienced a large increase between 2016 and 2017, but also a large decrease the following year. The Arroyo Quemado's abundance remained low throughout the 2012-2018 period (Figure 2).
+Isla Vista has the most noticeable increase in lobster abundance from 2012 to 2018. Additionally, further analysis is needed to explain the sudden spike in lobster abundance in Isla Vista after 2016. Naples and Mohawk have similar increasing trends, although Naples experienced an increase between 2017 and 2018; while Mohawk, a decrease. Carpinteria experienced a large increase between 2016 and 2017, but also a large decrease the following year. The abundance at Arroyo Quemado remained low throughout the 2012-2018 period (Figure 2).
 
 ```{r}
 # data structure: each site has several transects, each transect has ABCD replicates
