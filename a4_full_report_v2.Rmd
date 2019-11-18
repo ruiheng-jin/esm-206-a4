@@ -33,6 +33,10 @@ lob_abun <- read_csv("lobster_abundance_sbc_lter.csv",
 
 In 2012, the Santa Barbara Coastal Long Term Ecological Research program (SBC LTER) started collecting data on spiny lobster to determine if their populations and sizes were effected by fishing intensity. The purpose of this report is to determine the changes in lobster abudance and lobster size from 2012 to 2018 from five sites in Santa Barbara County. The five sites are Arroyo Quemado, Carpinteria, Isla Vista, Mohawk, Naples. Special attention will be given to the two Marine Protected Area (MPA) of Naples and Isla Vista. Additionally, this report will compare average lobster size in milimeters for MPA and NON MPA sites in the years 2012 and 2018.These finding will pave the way for further analysis that determines the cause of certain trends in lobster population and size changes.
 
+![Spiny Lobster Credit: https://www.vice.com/en_us/article/gvk5kq/why-we-dont-eat-california-spiny-lobsters-even-though-they-taste-better](lob_ster.jpeg)
+
+
+
 ## DATA AND METHODS
 The data used in this report was collected by researchers from the Santa Barbara Coastal Long Term Ecological Research program (SBC LTER). The data includes observations of California spiny lobsters at five locations, two of which are Marine Protected Area (MPA). Three variables are studied in this report: year of observation, site of observation, size of lobster (mm). Two-sample, two-sided, unpaired tests (α = 0.05) and cohen’s d are performed for comparisons of mean lobster sizes between MPA sites and non-MPA sites, and between 2012 and 2018. Data analysis is performed using RStudio (Version 1.2.1335).
 
@@ -40,8 +44,6 @@ The data used in this report was collected by researchers from the Santa Barbara
 
 ### RESULTS A
 #### **CHANGES IN ANNUAL LOBSTER ABUNDANCE AT FIVE SITES**
-
-Isla Vista has the most noticable increase in lobster abundance from 2012 to 2018. Additionally, further analysis is needed to explain the sudden spike in lobster abundance in Isla Vista after 2016. Naples and Mohawk have similar increasing trends, although Naples experienced an increase between 2017 and 2018, while Mohawk a decrease. Carpinteria experienced a large increase between 2016 and 2017, but also a large decrease the following year. The  The Arroyo Quemado's abundance remained low throughout the 2012-2018 period (Figure 1).
 
 ```{r}
 # data structure: each site has several transects, each transect has ABCD replicates
@@ -76,7 +78,7 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
   labs(x = "", 
        y = "Lobster abundance", 
        title = "Lobster Abundance at Five Sites (2012-2018)",
-       caption = "Figure 1. Lobster abundance from 5 study sites, from year 2012 to 2018.") +
+       caption = "Figure 2. Lobster abundance from 5 study sites, from year 2012 to 2018.") +
   scale_x_continuous(expand = expand_scale(add = c(1, 1)),
                      breaks = c(2012, 2014, 2016, 2018)) +
   scale_y_continuous(expand = expand_scale(add = c(0, 0)),
@@ -86,11 +88,10 @@ ggplot(lob_yr_site, aes(x = year, y = n)) +
         title = element_text(size = 11)) 
 ```
 
+Isla Vista has the most noticable increase in lobster abundance from 2012 to 2018. Additionally, further analysis is needed to explain the sudden spike in lobster abundance in Isla Vista after 2016. Naples and Mohawk have similar increasing trends, although Naples experienced an increase between 2017 and 2018, while Mohawk a decrease. Carpinteria experienced a large increase between 2016 and 2017, but also a large decrease the following year. The  The Arroyo Quemado's abundance remained low throughout the 2012-2018 period.
 
 ### RESULTS B
 #### **SHIFTS IN LOBSTER SIZE DISTRIBUTION FROM 2012 TO 2018**
-
-There are two marine protected area (MPA), Naples and Isla Vista. Naples has a higher percentage of larger lobsters in 2018 than in 2012. Ilsa Vista, another MPA site, has an even bigger shift is lobster size. There are a lot of smaller lobsters in 2012, but they become much bigger in 2018. The change in size distributions for Naples and Ilsa Vista makes sense because these sites are marine protected areas, these lobsters have been allowed to grow old and larger in size. For the other three sites, there is a shift towards larger lobster over time, but the shift is much smaller. The biggest shift in lobster size over time for the non mpa sites is seen at the site Carpinteria (Figure 2).
 
 ```{r}
 # data structure: each site has several transects, and within each transect they have either A, B, C, or D replicates. The count column can has multiple counts of the same transect number and replicate, we want to make each of those counts a seperate row.
@@ -104,6 +105,10 @@ lob_tidy2 <- lob_abun %>%
 lob_tidy2$mpa_status <- factor(lob_tidy2$mpa, labels = c("non-MPA", "MPA"))
 ```
 
+Marine Protected Areas (MPA) 
+Sampling began in 2012 and is ongoing. Naples and Isla Vista
+
+two within MPAs (Naples and Isla Vista) and three outside (Arroyo Quemado, Mohawk and Carpinteria).
 
 ```{r}
 
@@ -131,6 +136,7 @@ ggplot(lob_size, aes(x = size_mm)) +
 
 ```
 
+There are two marine protected area (MPA), Naples and Isla Vista. Naples has a higher percentage of larger lobsters in 2018 than in 2012. Ilsa Vista, another MPA site, has an even bigger shift is lobster size. There are a lot of smaller lobsters in 2012, but they become much bigger in 2018. The change in size distributions for Naples and Ilsa Vista makes sense because these sites are marine protected areas, these lobsters have been allowed to grow old and larger in size. For the other three sites, there is a shift towards larger lobster over time, but the shift is much smaller. The biggest shift in lobster size over time for the non mpa sites is seen at the site Carpinteria.
 
 
 ### RESULTS C
